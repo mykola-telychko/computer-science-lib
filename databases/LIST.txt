@@ -9,3 +9,9 @@ https://www.youtube.com/playlist?list=PLlb7e2G7aSpS_tveNoxgn1Zqmg-VhD95i
 https://www.youtube.com/playlist?list=PLlb7e2G7aSpRsPnjtSi2q0GXZdUXuXO46
 
 inno db строчные блокировки . позволяет транзакции потому .
+
+db architecture 
+https://x.com/Python_Dv/status/1945300556148564169?t=1ax72gYFzBzxk4AUTmNDGA&s=19
+
+db doc
+https://claude.ai/share/8a73c0a4-20e6-4ff0-8452-a425761867b2

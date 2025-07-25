@@ -203,3 +203,91 @@ https://www.tecmint.com/change-linux-system-date-and-time/
 -------
 regexp 
 https://proglib.io/p/33-regexp
+
+providers and ip 
+https://suip.biz/ru/?act=all-isp
+
+router ip
+https://losst.ru/kak-uznat-ip-routera
+
+Router . адрес шлюза у провайдера . Адрес роутера .
+route -n
+arp -v
+
+scp 
+https://linux-notes.org/kak-skopirovat-danny-e-cherez-scp-v-linux/
+
+#apache2 куширует .htaccess потому после изминений  нужно service apache2 restart .
+
+#notice Устанавливаем библиотеки в зависимости от версий . перезапуски приложений после изминения конфигов . И очистка кеша .
+
+check install package 
+dpkg -l | grep packagename
+
+linux commands
+https://habr.com/ru/articles/228999/
+
+import to db
+#console #mysql 
+mysql>  source  /home/name/file.sql
+ OR on server 
+/home/niko# mysql -u userYou -p db_tab_ic < ic.sql
+
+https://privnote.com/
+Privnote - Отправляйте записки, которые самоуничтожатся после прочтения
+
+
+$ git config --global user.name "Bob"
+$ git config --global user.email "bob@example.com"
+ —- Change user git
+
+linux commands
+ https://habr.com/ru/companies/ruvds/articles/339820/
+
+прцес контейнер ресурсов
+pstree | less - дерево процесов кто от кого / ps fax /
+
+
+tail -f /var/log/syslog | grep CRON
+Logs cron
+
+
+https://maxidrom.net/archives/1454
+
+
+
+
+Підбірка ресурсів для безпечного перегляду і перевірки посилань та файлів
+
+Browser.lol - новий "браузер в браузері". Віддалено відкривайте сумнівні лінки. З плюсів, не вимагає реєстрації і надає 10 хвилин на одну сесію. З мінусів, швидкість, працює повільніше своїх аналогів. Браузери: FireFox, Chrome, Edge, Tor (працює повільно).
+
+Squarex - інструмент для безпечного перегляду сумнівних посилань, веб-ресурсів або завантажених вами файлів, в тому числі документів, зображень, архівів, аудіо та відео файлів. Сесія 10 хвилин, можна обирати локацію. З мінусів, потрібна реєстрація і не можна обирати браузер сесії (лише Chrome).
+
+Browserling - відкриє ваше посилання у віртуальній машині на базі вибраної вами операційної системи та браузера. Сесія лише три хвилини. Але тут присутній вибір ОС (в т.ч Android) та майже всі популярні браузери. Оптимізований і не вимагає реєстрації.
+
+Croxyproxy - шифрований проксі, доступний прямо в браузері. Це не альтернатива якісному VPN, але, якщо потрібно зайти на сумнівний ресурс, він забезпечить вам хоч б мінімальну конфіденційність (приховує IP, SSL шифрування трафіку). Не вимагає реєстрації.
+
+Dangerzone - програма конвертує сумнівні PDF-файли, офісні документи або зображення на їхні безпечні для перегляду версії. Для роботи потрібен Docker. Наявні версії для всіх популярних ОС. Працює за принципами контейнерів.
+
+VirusTotal, Hybrid Analysis, MetaDefender Cloud - вже легендарні онлайн антивіруси. Hybrid, може одразу виконувати програму і надсилати скріншоти з процесу встановлення (програми до 100мб). Також для адекватної перевірки на RAT-віруси, рекомендується залишити програму на ВТ хоча би на тиждень, і вже тоді аналізувати детекти.
+
+#git удаление ебанутых файлов из комита 
+sudo rm -f "\\"
+
+ApacheLogs  #apache2 #linux 
+cd /var/log/apache2
+
+настройка апач 
+https://www.opennet.ru/docs/RUS/apache/
+
+чек сайт 
+https://transparencyreport.google.com/safe-browsing/search
+
+ctrl shift f — поиск в терминале #linux
+
+
+apt install net-tools
+
+netstat -ntu | awk '{print $5}'| cut -d: -f1 | sort | uniq -c | sort -nr | more
+
+cat config.php | grep burl -i (ignore upercase) #linux

@@ -29,3 +29,6 @@ https://www.youtube.com/watch?v=CSSpiECMBn8
 Энтузиаст разработал программу GoodbyeDPI, которая возвращает доступ к заблокированным при помощи DPI сайтам. Для этого даже не нужно использовать прокси и VPN.
 
 Подробнее о настройке на GitHub: https://github.com/ValdikSS/GoodbyeDPI
+
+WiFi
+https://github.com/koutto/pi-pwnbox-rogueap/blob/main/mindmap/WiFi-Hacking-MindMap-v1.png
