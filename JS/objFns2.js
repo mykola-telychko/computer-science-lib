@@ -11,11 +11,7 @@ const exampleObject = {
         }, 1000);
     },
 
-    delayedMsg: function(message, delay) {
-        setTimeout(() => {
-            console.log(message);
-        }, delay);
-    },
+    delayedMsg: function(message, delay) { setTimeout(() => { console.log(message); }, delay); },
 
     fetchData: function(url, onSuccess, onError) {
         fetch(url)
@@ -57,6 +53,4 @@ exampleObject.fetchData(
     (error) => console.log("Error fetching data:", error)
 );
 
-exampleObject.complexOperation(5, (result) => {
-    console.log("Final result:", result);
-});
+exampleObject.complexOperation(5, (result) => { console.log("Final result:", result);});

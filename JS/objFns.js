@@ -10,9 +10,7 @@ const exampleObject = {
     },
 
     delayedMsg: function(message, delay) {
-        setTimeout(() => {
-            console.log(message);
-        }, delay);
+        setTimeout(() => { console.log(message); }, delay);
     },
 
     fetchData: function(url, onSuccess, onError) {

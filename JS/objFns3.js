@@ -2,9 +2,7 @@
 
 const exampleObject = {
     // This function is synchronous and doesn't need to be changed
-    greet: function(name) {
-        return `Hi, ${name}!`;
-    },
+    greet: function(name) { return `Hi, ${name}!`; },
 
     // Refactored to return a Promise
     processData: function(data) {
@@ -21,9 +19,7 @@ const exampleObject = {
     // Refactored to return a Promise
     delayedMsg: function(message, delay) {
         return new Promise((resolve) => {
-            setTimeout(() => {
-                console.log(`Delayed message received: "${message}"`);
-                resolve();
+            setTimeout(() => { console.log(`Delayed msg: "${message}"`); resolve();
             }, delay);
         });
     },
@@ -56,43 +52,32 @@ const exampleObject = {
     }
 };
 
-// --- Execution of the code sequentially using async/await ---
-
+// --- Execution sequentially using async/await ---
 async function runSequentialOperations() {
     try {
-        console.log("--- Starting sequential execution ---");
+        console.log("--START sequential execution ---");
 
         // Step 1: Synchronous function call
         const greeting = exampleObject.greet("Alice");
-        console.log(greeting);
+        console.log("1:*: ", greeting);
 
-        // ---
-        // Step 2: Wait for processData to complete
-        // The 'await' keyword pauses execution until the Promise resolves.
+        // Step 2: Wait for processData to complete // The 'await' keyword pauses execution until the Promise resolves.
         const processed = await exampleObject.processData("test data");
-        console.log("Result from processData:", processed);
+        console.log("2:*: Result from processData:", processed);
 
-        // ---
         // Step 3: Wait for delayedMsg to complete
-        await exampleObject.delayedMsg("msg is delayed by 2sec", 2000);
+        await exampleObject.delayedMsg("3:*: msg is delayed by 2sec", 2000);
 
-        // ---
-        // Step 4: Wait for fetchData to complete
-        // Using await with fetch is clean and readable.
-        // We handle potential errors with a 'try...catch' block.
+        // Step 4: Wait for fetchData to complete // Using await with fetch is clean and readable.
+        // handle potential errors with a 'try...catch' block.
         const fetchedData = await exampleObject.fetchData("https://mykola-telychko.github.io/drg-store/list.json");
-        console.log("Data fetched successfully:", fetchedData);
+        console.log("4:*: Data fetched successfully:", fetchedData);
 
-        // ---
         // Step 5: Wait for complexOperation to complete
         const finalResult = await exampleObject.complexOperation(5);
-        console.log("Final result from complexOperation:", finalResult);
+        console.log("--FINAL result from complexOperation:", finalResult);
 
-        console.log("\n--- All operations completed sequentially ---");
-
-    } catch (error) {
-        console.error("An error occurred during execution:", error);
-    }
+    } catch (error) { console.error("An error occurred during execution:", error); }
 }
 
 // Call the main async function to start the process

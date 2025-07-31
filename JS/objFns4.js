@@ -2,9 +2,6 @@
 
 // ++ Асинхронний варіант з async/await виконує все по черзі, очікуючи завершення кожної операції.
 
-
-
-
 // Обгортаємо старі callback-методи в Promises
 function processDataAsync(data) {
     return new Promise(resolve => {
