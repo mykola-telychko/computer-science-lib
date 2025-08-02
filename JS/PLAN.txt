@@ -1,1 +1,3 @@
 додати логіку пріоритетності 
+
+https://stackoverflow.com/questions/32844818/why-i-need-to-avoid-using-try-catch-finally-inside-a-loop

@@ -1,0 +1,3 @@
+https://codewithstyle.info/deep-dive-pipe-function-rxjs/
+
+що робити з прикладами яких я наплодив по rxjs
