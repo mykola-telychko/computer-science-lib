@@ -1,3 +1,5 @@
-додати логіку пріоритетності 
+додати логіку пріоритетності objFns.js
+(Написати івент луп. Обєкт не пріоритетність визначається 1 11 111. І два режима синхронний і асинхроний)
+
 
 https://stackoverflow.com/questions/32844818/why-i-need-to-avoid-using-try-catch-finally-inside-a-loop

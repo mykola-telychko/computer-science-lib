@@ -32,3 +32,20 @@ https://www.youtube.com/watch?v=CSSpiECMBn8
 
 WiFi
 https://github.com/koutto/pi-pwnbox-rogueap/blob/main/mindmap/WiFi-Hacking-MindMap-v1.png
+
+PIROH book 
+https://www.linkedin.com/posts/alex-piroh-b4029722a_%D0%BD%D0%BE%D0%B2%D0%B8%D0%B9-%D0%BF%D1%96%D0%B4%D1%80%D1%83%D1%87%D0%BD%D0%B8%D0%BA-%D1%96%D0%B7-%D0%BA%D1%96%D0%B1%D0%B5%D1%80%D0%B1%D0%B5%D0%B7%D0%BF%D0%B5%D0%BA%D0%B8-%D0%B1%D0%B5%D0%B7%D0%BF%D0%B5%D0%BA%D0%B0-activity-7349348907526631424-dRnE?utm_source=share&utm_medium=member_desktop&rcm=ACoAACxa6MsB545HcN6eDeUJcQx0hHyzr7qcOEk
+
+engeneer errors 
+https://youtu.be/rxDz2cyoJvQ?si=Vo0cfYCDy_aPrV85
+
+WEB хакинг
+🕳 Авторизация на сайте под любым логином не зная пароля - https://www.youtube.com/watch?v=bDjbEkileJU
+🕳 Авторизация без пароля с помощью SQL инъекции PHP - https://www.youtube.com/watch?v=JwWXG8K-cd4
+🕳 Получение пароля администратора сайта с помощью SQL инъекции в GET параметр - https://www.youtube.com/watch?v=ViM7jdevlUM
+🕳 Регистрируемся с правами администратора с помощью SQL инъекции PHP - https://www.youtube.com/watch?v=AufWzLl5hj4
+🕳 Использование подготовленных запросов PDO для предотвращения SQL инъекций - https://www.youtube.com/watch?v=gMer0_3QTzY
+🕳 Пассивная XSS атака - https://www.youtube.com/watch?v=tmq5UVlUq4U
+🕳 Защита от пассивной XSS атаки - https://www.youtube.com/watch?v=ujiGICzxPeE
+🕳 Активная XSS атака и защита от нее - https://www.youtube.com/watch?v=wuy06I9nhYo
+🕳 Атака брут форс перебор паролей PHP - Смотреть
