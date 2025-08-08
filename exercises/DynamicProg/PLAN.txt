@@ -1,1 +1,3 @@
-uniquePath1 uniquePath2 Minimum Path Sum - problems with move on square grid (ways)
+uniquePath1 .uniquePath2. Minimum Path Sum. maximalRectangle - problems with move on square grid (ways)
+
+додати короткі пояснення і аналоги простіших задач 
