@@ -1,0 +1,67 @@
+--------------Прості задачі------------------
+Сума елементів масиву
+Дано масив чисел. Використовуйте reduce, щоб знайти суму всіх елементів масиву.
+input: [1, 2, 3, 4] / output: 10; 
+
+console.log([1, 2, 3, 4].reduce((accFin, currValue) => {
+  return accFin + currValue;
+}, 0));
+console.log([1, 2, 3].reduce((acc, val) => acc + val, 0));
+console.log([3, 2, 3].reduce((a, b) => a + b));
+
+
+Добуток елементів масиву
+Дано масив чисел. Використовуйте reduce, щоб знайти добуток усіх елементів масиву.
+input: [2, 3, 4] / output: 24;
+const multiplyArrayElements = arr => arr.reduce((a, b) => a * b, 1);
+[2, 3, 4].reduce((a, b) => a * b, 1);
+console.log([2, 3, 4].reduce((fin, i) => fin * i, 1));
+
+Об’єднання рядків. Дано масив рядків. Використовуйте reduce, щоб об’єднати всі рядки в один, 
+розділяючи їх комою.
+input: ["apple", "banana", "orange"]
+output: "apple,banana,orange"
+Підрахунок кількості елементів
+
+Дано масив чисел. Використовуйте reduce, щоб підрахувати, скільки разів певне 
+число (наприклад, 5) зустрічається в масиві.
+input: [1, 5, 2, 5, 3, 5]
+output: 3 (число 5 зустрічається 3 рази)
+
+
+Максимальне значення в масиві
+Дано масив чисел. Використовуйте reduce, щоб знайти максимальне значення.
+input: [3, 8, 2, 10, 5]
+output: 10
+
+
+Задачі середньої складності. Групування за властивістю
+Дано масив об’єктів із полем category. Використовуйте reduce, щоб згрупувати об’єкти за значенням category, 
+створивши об’єкт, де ключі — це категорії, а значення — масиви об’єктів відповідної категорії.
+input: [{ name: "Apple", category: "Fruit" }, { name: "Carrot", category: "Vegetable" }, { name: "Banana", category: "Fruit" }]
+output: { Fruit: [{ name: "Apple", category: "Fruit" }, { name: "Banana", category: "Fruit" }], Vegetable: [{ name: "Carrot", category: "Vegetable" }] }
+
+
+Сума парних чисел .Дано масив чисел. Використовуйте reduce, щоб знайти суму тільки парних чисел у масиві.
+input: [1, 2, 3, 4, 5, 6]
+output: 12 (2 + 4 + 6)
+
+
+Створення об’єкта з масиву пар
+Дано масив пар [ключ, значення]. Використовуйте reduce, щоб перетворити його на об’єкт.
+input: [["name", "Олег"], ["age", 25], ["city", "Київ"]]
+output: { name: "Олег", age: 25, city: "Київ" }
+
+
+Підрахунок унікальних елементів
+Дано масив. Використовуйте reduce, щоб створити об’єкт, де ключі — це унікальні елементи масиву, 
+а значення — кількість їх появ.
+input: ["apple", "banana", "apple", "orange", "banana"]
+output: { apple: 2, banana: 2, orange: 1 }
+
+
+Сума цін товарів за умовою
+Дано масив об’єктів із полями name, price і isAvailable. Використовуйте reduce,
+ щоб знайти суму цін тільки тих товарів, у яких isAvailable: true.
+input: [{ name: "Bread", price: 34, isAvailable: true }, { name: "Milk", price: 45, isAvailable: false }, { name: "Meat", price: 33, isAvailable: true }]
+output: 67 (34 + 33)
