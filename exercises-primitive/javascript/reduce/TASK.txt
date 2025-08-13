@@ -17,47 +17,76 @@ const multiplyArrayElements = arr => arr.reduce((a, b) => a * b, 1);
 [2, 3, 4].reduce((a, b) => a * b, 1);
 console.log([2, 3, 4].reduce((fin, i) => fin * i, 1));
 
+
 Об’єднання рядків. Дано масив рядків. Використовуйте reduce, щоб об’єднати всі рядки в один, 
 розділяючи їх комою.
 input: ["apple", "banana", "orange"]
 output: "apple,banana,orange"
-Підрахунок кількості елементів
+console.log(["apple", "banana", "orange"].reduce((finVal, el) => finVal += ',' + el));
 
+
+Підрахунок кількості елементів
 Дано масив чисел. Використовуйте reduce, щоб підрахувати, скільки разів певне 
 число (наприклад, 5) зустрічається в масиві.
-input: [1, 5, 2, 5, 3, 5]
-output: 3 (число 5 зустрічається 3 рази)
-
+input: [1, 5, 2, 5, 3, 5] / output: 3 (число 5 зустрічається 3 рази)
+const target = 5;
+console.log([1, 5, 2, 5, 3, 5].reduce((acc, curr) => acc + (curr === target), 0)); 
 
 Максимальне значення в масиві
 Дано масив чисел. Використовуйте reduce, щоб знайти максимальне значення.
-input: [3, 8, 2, 10, 5]
-output: 10
+input: [3, 8, 2, 10, 5] / output: 10 .
+console.log([3, 8, 2, 10, 5].reduce((newArr, currValue) => {
+return Math.max(newArr, currValue); }, -Infinity));
+//  -Infinity - for correct work with negative numbers 
 
 
-Задачі середньої складності. Групування за властивістю
+--------------Задачі середньої складності--------------
+Групування за властивістю
 Дано масив об’єктів із полем category. Використовуйте reduce, щоб згрупувати об’єкти за значенням category, 
 створивши об’єкт, де ключі — це категорії, а значення — масиви об’єктів відповідної категорії.
 input: [{ name: "Apple", category: "Fruit" }, { name: "Carrot", category: "Vegetable" }, { name: "Banana", category: "Fruit" }]
 output: { Fruit: [{ name: "Apple", category: "Fruit" }, { name: "Banana", category: "Fruit" }], Vegetable: [{ name: "Carrot", category: "Vegetable" }] }
 
+console.log([
+  { name: "Apple", category: "Fruit" },
+  { name: "Carrot", category: "Vegetable" },
+  { name: "Banana", category: "Fruit" }
+].reduce((finArr, currValue) => {
+  const category = currValue.category;
+  if (!finArr[category]) { finArr[category] = []; }
+  finArr[category].push(currValue);
+  return finArr;
+}, {}));
+
 
 Сума парних чисел .Дано масив чисел. Використовуйте reduce, щоб знайти суму тільки парних чисел у масиві.
-input: [1, 2, 3, 4, 5, 6]
-output: 12 (2 + 4 + 6)
+input: [1, 2, 3, 4, 5, 6] / output: 12 (2 + 4 + 6)
 
+console.log([1, 2, 3, 4, 5, 6].reduce((finVal, int) => {
+  if (int % 2 === 0) { return finVal + int; }
+  return finVal;
+}, 0));
 
 Створення об’єкта з масиву пар
 Дано масив пар [ключ, значення]. Використовуйте reduce, щоб перетворити його на об’єкт.
-input: [["name", "Олег"], ["age", 25], ["city", "Київ"]]
-output: { name: "Олег", age: 25, city: "Київ" }
+input: [["name", "Олег"], ["age", 25], ["city", "Київ"]] / output: { name: "Олег", age: 25, city: "Київ" }
+
+console.log([["name", "Олег"], ["age", 25], ["city", "Київ"]].reduce((acc, [key, value]) => {
+    acc[key] = value;
+    return acc;
+}, {})); 
+
 
 
 Підрахунок унікальних елементів
 Дано масив. Використовуйте reduce, щоб створити об’єкт, де ключі — це унікальні елементи масиву, 
 а значення — кількість їх появ.
-input: ["apple", "banana", "apple", "orange", "banana"]
-output: { apple: 2, banana: 2, orange: 1 }
+input: ["apple", "banana", "apple", "orange", "banana"] / output: { apple: 2, banana: 2, orange: 1 }
+
+console.log(["apple", "banana", "apple", "orange", "banana"].reduce((acc, el) => {
+    acc[el] = (acc[el] || 0) + 1;
+    return acc;
+}, {})); 
 
 
 Сума цін товарів за умовою
@@ -65,3 +94,11 @@ output: { apple: 2, banana: 2, orange: 1 }
  щоб знайти суму цін тільки тих товарів, у яких isAvailable: true.
 input: [{ name: "Bread", price: 34, isAvailable: true }, { name: "Milk", price: 45, isAvailable: false }, { name: "Meat", price: 33, isAvailable: true }]
 output: 67 (34 + 33)
+
+console.log([
+  { name: "Bread", price: 34, isAvailable: true },
+  { name: "Milk", price: 45, isAvailable: false },
+  { name: "Meat", price: 33, isAvailable: true }
+].reduce((sum, product) => {
+  return product.isAvailable ? sum + product.price : sum;
+}, 0)); 
