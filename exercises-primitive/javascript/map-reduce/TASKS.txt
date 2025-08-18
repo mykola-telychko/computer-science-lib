@@ -1,16 +1,44 @@
-Математика
-
-Скалярний добуток векторів
+---Скалярний добуток векторів
 Дано два масиви однакової довжини, що представляють вектори. 
 Знайти їх скалярний добуток за допомогою map + reduce.
-Приклад:
-v1 = [2, 3, 4], v2 = [1, 5, 2] → 2*1 + 3*5 + 4*2 = 25
+Приклад: v1 = [2, 3, 4], v2 = [1, 5, 2] → 2*1 + 3*5 + 4*2 = 25
+const vectors1 = [2, 3, 4, 23, 9, 5];
+const vectors2 = [1, 5, 2, 11, 8, 4];
 
-Середньоквадратичне відхилення (σ)
+const v1_on_v2 = vectors1.map((num, i) => num * vectors2[i]);
+const total1 = v1_on_v2.reduce((finVal, curr) => finVal + curr, 0);
+
+const total2 = vectors1.map((num, i) => num * vectors2[i])
+  .reduce((finVal, curr) => finVal + curr, 0);
+console.log(total1); 
+console.log(total2); 
+
+
+--Середньоквадратичне відхилення (σ)
 Є масив виміряних значень. Спочатку знайти середнє значення, 
 потім за допомогою map порахувати квадрати відхилень і звести їх через reduce.
+const arr = [10, 12, 14, 16, 18];
+// 1. Calculate the mean (average) of the data
+const mean = arr.reduce((finSum, num) => finSum + num, 0) / arr.length;
+// 2. Calculate squared deviations from the mean for each data point
+const sqrDeviations = arr.map(num => Math.pow(num - mean, 2));
+// 3. Sum all squared deviations
+const sumSqrDeviations = sqrDeviations.reduce((finSum, deviation) => finSum + deviation, 0);
+// Output results
+console.log("Mean (Average):", mean); // 14
+console.log("Squared Deviations:", sqrDeviations); // [16, 4, 0, 4, 16]
+console.log("Sum of Squared Deviations:", sumSqrDeviations); // 40
+---
+const arr = [10, 12, 14, 16, 18];
+// Calculate mean and sum of squared deviations in one chain
+const avg = data.reduce((a, b) => a + b) / arr.length;
+const sumOfSquaredDeviations = arr
+  .map(num => (num - avg) ** 2)  // Square each deviation
+  .reduce((a, b) => a + b);       // Sum all squared deviations
+console.log("Sum of Squared Deviations:", sumOfSquaredDeviations); // 40
 
-Числові ряди та степені
+
+--Числові ряди та степені
 Створити масив чисел від 1 до N. 
 За допомогою map піднести їх у квадрат (або куб) і знайти суму через reduce.
 Приклад:
