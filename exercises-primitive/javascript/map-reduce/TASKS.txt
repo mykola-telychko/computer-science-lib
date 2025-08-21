@@ -41,21 +41,145 @@ console.log("Sum of Squared Deviations:", sumOfSquaredDeviations); // 40
 --Числові ряди та степені
 Створити масив чисел від 1 до N. 
 За допомогою map піднести їх у квадрат (або куб) і знайти суму через reduce.
-Приклад:
-Знайти суму квадратів перших 100 чисел.
+Приклад: Знайти суму квадратів перших 100 чисел.
+const N = 100;
+console.log("Сума квадратів:", Array.from({ length: N }, (_, i) => (i + 1) ** 2)
+                              .reduce((sum, current) => sum + current, 0));
+console.log("Сума кубів:", Array.from({ length: N }, (_, i) => (i + 1) ** 3)
+                          .reduce((sum, current) => sum + current, 0));
+                          
 
 Обчислення інтеграла (метод прямокутників)
 Є функція f(x). Створити дискретний набір точок (наприклад, від 0 до 10 з кроком 0.1). 
 За допомогою map обчислити f(x) і через reduce знайти площу під графіком.
+--------
+// Функція, інтеграл якої обчислюємо (наприклад, f(x) = x^2)
+const f = (x) => x ** 2;
+
+// Межі інтегрування та крок
+const a = 0; // Початок відрізку
+const b = 10; // Кінець відрізку
+const h = 0.1; // Крок
+
+// Створюємо масив точок x від a до b з кроком h
+const points = [];
+for (let x = a; x <= b; x += h) { points.push(x); }
+
+// значення функції f(x) у точках
+const functionValues = points.map(x => f(x));
+
+// Метод лівих прямокутників: сумуємо f(x_i) * h, крім останньої точки
+const integralLeft = functionValues
+    .slice(0, -1) // Виключаємо останню точку, щоб не виходити за межі
+    .reduce((sum, current) => sum + current * h, 0);
+
+// Метод правих прямокутників: сумуємо f(x_{i+1}) * h, починаючи з другої точки
+const integralRight = functionValues
+    .slice(1) // Виключаємо першу точку
+    .reduce((sum, current) => sum + current * h, 0);
+
+// Метод середніх прямокутників (точніший):
+// Зсуваємо точки на h/2 вправо і обчислюємо значення функції
+const shiftedPoints = points.slice(0, -1).map(x => x + h / 2);
+const functionValuesMid = shiftedPoints.map(x => f(x));
+const integralMid = functionValuesMid.reduce((sum, current) => sum + current * h, 0);
+
+console.log("Інтеграл (ліві прямокутники):", integralLeft);
+console.log("Інтеграл (праві прямокутники):", integralRight);
+console.log("Інтеграл (метод середніх прямокутників):", integralMid);
+--------
+
 
 ⚡ Фізика
 Середня кінетична енергія
 Є масив швидкостей частинок. Використати map для обчислення кінетичної 
 енергії E = (m * v²)/2 для кожної частинки (m однакова), а потім reduce для знаходження середнього значення.
+-----------
+// Масив швидкостей частинок (м/с)
+const velocities = [10, 15, 20, 8, 12, 25, 18, 22, 14, 16];
+
+// Маса частинки (кг) - однакова для всіх частинок
+const mass = 0.5;
+
+// Функція для обчислення кінетичної енергії: E = (m * v²) / 2
+function calculateKineticEnergy(velocity) {
+    return (mass * velocity * velocity) / 2;
+}
+
+console.log('=== Обчислення кінетичної енергії частинок ===');
+console.log(`Масив швидкостей: [${velocities.join(', ')}] м/с`);
+console.log(`Маса кожної частинки: ${mass} кг`);
+console.log();
+// Використання map для обчислення кінетичної енергії кожної частинки
+const kineticEnergies = velocities.map(calculateKineticEnergy);
+
+console.log('Кінетичні енергії кожної частинки:');
+kineticEnergies.forEach((energy, index) => {
+    console.log(`Частинка ${index + 1}: v = ${velocities[index]} м/с → E = ${energy.toFixed(2)} Дж`);
+});
+console.log();
+console.log(`Масив кінетичних енергій: [${kineticEnergies.map(e => e.toFixed(2)).join(', ')}] Дж`);
+
+// Використання reduce для знаходження середнього значення
+const averageKineticEnergy = kineticEnergies.reduce((sum, energy, index, array) => {
+    return sum + energy / array.length;
+}, 0);
+
+// Альтернативний спосіб через reduce для суми та окреме ділення
+const totalEnergy = kineticEnergies.reduce((sum, energy) => sum + energy, 0);
+const averageEnergy2 = totalEnergy / kineticEnergies.length;
+
+console.log();
+console.log('=== Результати ===');
+console.log(`Загальна кінетична енергія: ${totalEnergy.toFixed(2)} Дж`);
+console.log(`Кількість частинок: ${kineticEnergies.length}`);
+console.log(`Середня кінетична енергія: ${averageKineticEnergy.toFixed(2)} Дж`);
+
+// Перевірка результату
+console.log(`Перевірка (альтернативний розрахунок): ${averageEnergy2.toFixed(2)} Дж`);
+
+console.log();
+
+// Додаткова статистика
+const minEnergy = Math.min(...kineticEnergies);
+const maxEnergy = Math.max(...kineticEnergies);
+console.log('=== Додаткова статистика ===');
+console.log(`Мінімальна кінетична енергія: ${minEnergy.toFixed(2)} Дж`);
+console.log(`Максимальна кінетична енергія: ${maxEnergy.toFixed(2)} Дж`);
+console.log(`Діапазон: ${(maxEnergy - minEnergy).toFixed(2)} Дж`);
+
+// Демонстрація з іншими даними
+console.log();
+console.log('=== Приклад з іншими даними ===');
+
+const velocities2 = [5, 10, 15];
+const mass2 = 2;
+
+const energies2 = velocities2.map(v => (mass2 * v * v) / 2);
+const avgEnergy2 = energies2.reduce((sum, e) => sum + e, 0) / energies2.length;
+
+console.log(`Швидкості: [${velocities2.join(', ')}] м/с`);
+console.log(`Маса: ${mass2} кг`);
+console.log(`Кінетичні енергії: [${energies2.join(', ')}] Дж`);
+console.log(`Середня кінетична енергія: ${avgEnergy2.toFixed(2)} Дж`);
+-----------
+
 
 Момент сили (Torque)
 Є масив сил та відповідних плечей (відстаней до точки обертання). 
 Використати map для обчислення моментів M = F * r і reduce для суми всіх моментів.
+----------
+// Масиви сил і плечей
+const forces = [10, 15, 7, 20];   // в Ньютонах
+const arms   = [0.5, 0.3, 0.8, 0.6]; // відстані (м)
+
+// Обчислюємо моменти: M = F * r
+const torques = forces.map((F, i) => F * arms[i]);
+console.log("Окремі моменти:", torques);
+// Знаходимо суму моментів totalTorque
+console.log("Сумарний момент сили:", torques.reduce((sum, M) => sum + M, 0), "Н·м");
+----------
+
 
 Сумарний електричний заряд системи
 Є набір частинок із зарядами. За допомогою reduce знайти сумарний заряд,
