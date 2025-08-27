@@ -165,6 +165,7 @@ console.log(`Середня кінетична енергія: ${avgEnergy2.toFi
 -----------
 
 
+
 Момент сили (Torque)
 Є масив сил та відповідних плечей (відстаней до точки обертання). 
 Використати map для обчислення моментів M = F * r і reduce для суми всіх моментів.
@@ -181,17 +182,85 @@ console.log("Сумарний момент сили:", torques.reduce((sum, M) =
 ----------
 
 
+
 Сумарний електричний заряд системи
 Є набір частинок із зарядами. За допомогою reduce знайти сумарний заряд,
  а через map можна додатково вирахувати співвідношення заряду до маси для кожної частинки.
+// Array of particles with charge (in Coulombs) and mass (in kilograms)
+const particles = [
+  { charge: 1.6e-19, mass: 9.1e-31 },  // Electron
+  { charge: -1.6e-19, mass: 9.1e-31 }, // Another electron
+  { charge: 3.2e-19, mass: 6.6e-27 },  // Alpha particle
+];
+// 1. Calculate total electric charge using reduce // chargeToMassRatios = particles.map
+const totalCharge = particles.reduce((sum, particle) => sum + particle.charge, 0);
+// 2. Calculate charge-to-mass ratio for each particle using map
+const chargeToMassRatios = particles.map(particle => ({
+  charge: particle.charge,
+  mass: particle.mass,
+  ratio: particle.charge / particle.mass
+}));
+console.log("Total Electric Charge (C):", totalCharge);
+console.log("Charge-to-Mass Ratios (C/kg):", chargeToMassRatios);
+
 
 Середнє значення сили по часу
 Є масив вимірювань сили у різні моменти часу. Використати map для перетворення 
 у імпульси F * Δt, а потім reduce для знаходження середньої сили.
+// Array of force measurements (in Newtons) at different time intervals
+const forceMeasurements = [
+  { force: 10, timeInterval: 2 },  // Force of 10N applied for 2 seconds
+  { force: 15, timeInterval: 1 },  // Force of 15N applied for 1 second
+  { force: 8, timeInterval: 3 },   // Force of 8N applied for 3 seconds
+  { force: 12, timeInterval: 2 }   // Force of 12N applied for 2 seconds
+];
+// 1. Calculate impulse (F * Δt) for each measurement using map
+const impulses = forceMeasurements.map(measurement => ({
+  force: measurement.force,
+  timeInterval: measurement.timeInterval,
+  impulse: measurement.force * measurement.timeInterval
+}));
+// 2. Calculate total impulse and total time using reduce
+const total = forceMeasurements.reduce((acc, measurement) => ({
+  totalImpulse: acc.totalImpulse + (measurement.force * measurement.timeInterval),
+  totalTime: acc.totalTime + measurement.timeInterval
+}), { totalImpulse: 0, totalTime: 0 });
+console.log("Individual Impulses (N·s):", impulses);
+console.log("Total Impulse:", total.totalImpulse, "N·s");
+console.log("Total Time:", total.totalTime, "s");
+// 3. Calculate average force (total impulse / total time)
+console.log("Average Force:", total.totalImpulse / total.totalTime, "N");
+
+
 
 Потужність системи
 Є масив швидкостей та відповідних сил. За допомогою map порахувати миттєву 
 потужність P = F * v, а потім reduce для знаходження середньої потужності.
+// Array of velocity (m/s) and force (N) measurements
+const measurements = [
+  { velocity: 5, force: 10 },   // v = 5 m/s, F = 10 N
+  { velocity: 8, force: 12 },   // v = 8 m/s, F = 12 N
+  { velocity: 6, force: 15 },   // v = 6 m/s, F = 15 N
+  { velocity: 7, force: 18 }    // v = 7 m/s, F = 18 N
+];
+// 1. Calculate instantaneous power (P = F * v) for each measurement using map
+const instantaneousPowers = measurements.map(measurement => ({
+  velocity: measurement.velocity,
+  force: measurement.force,
+  power: measurement.force * measurement.velocity  // P = F * v
+}));
+// 2. Calculate total power and count measurements using reduce
+const powerSummary = measurements.reduce((accumulator, measurement) => ({
+  totalPower: accumulator.totalPower + (measurement.force * measurement.velocity),
+  measurementCount: accumulator.measurementCount + 1
+}), { totalPower: 0, measurementCount: 0 });
+console.log("Instantaneous Powers (W):", instantaneousPowers);
+console.log("Total Power:", powerSummary.totalPower, "W");
+console.log("Number of Measurements:", powerSummary.measurementCount);
+// 3. Calculate average power
+console.log("Average Power:", powerSummary.totalPower / powerSummary.measurementCount, "W");
+
+
 
 --------------Statistics--------------
 -- задачі можна розв’язати комбінацією map (перетворення кожного елемента) та reduce (підсумовування/агрегація)
