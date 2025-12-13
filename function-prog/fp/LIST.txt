@@ -4,3 +4,6 @@ https://ru.stackoverflow.com/questions/111697/%D0%A7%D1%82%D0%BE-%D1%82%D0%B0%D0
 
 to teach lambda calculus to his eight-year-old children.
 https://worrydream.com/AlligatorEggs/
+
+Функтори js 
+https://habr.com/ru/articles/183150/
