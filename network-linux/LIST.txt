@@ -291,3 +291,5 @@ apt install net-tools
 netstat -ntu | awk '{print $5}'| cut -d: -f1 | sort | uniq -c | sort -nr | more
 
 cat config.php | grep burl -i (ignore upercase) #linux
+
+https://linuxhandbook.com/latest/
