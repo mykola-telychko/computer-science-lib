@@ -10,3 +10,6 @@ https://www.youtube.com/watch?v=0bT-eJNwfVU
 
 devops meet 
 https://www.youtube.com/live/bd7ofOND6ZQ?t=680s
+
+interview questions 
+https://github.com/NotHarshhaa/DevOps-Interview-Questions
