@@ -3,3 +3,6 @@ https://code.tutsplus.com/tutorials/managing-cron-jobs-with-php--net-19428
 
 php + ajax 
 https://www.youtube.com/watch?v=qQlSjvhbTVc&list=PLHZ9wVuPPnMyVAYydquyoYic9oDxRRKDR&index=6
+
+#errors error_reporting(E_ALL);
+ini_set('display_errors', 1);

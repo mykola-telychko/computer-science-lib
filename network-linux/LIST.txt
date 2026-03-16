@@ -13,6 +13,12 @@ https://github.com/mykola-telychko/main-linux-commands-easy-guide/blob/main/READ
 ---
 sudo chown -R $(whoami) ~/.npm ——- выдача прав на npm и любую папку .
 
+
+Самоучитель системного администратора
+Авторы: Кенин А., Колисниченко Д.
+Год издания: 2019
+
+
 > HARDWARE:
 find in file #linux cat install.sh | grep cache
 
