@@ -1,1 +1,3 @@
 Data analysis LABA course 
+
+тренування запитів mysql / kaggle / leetcode 

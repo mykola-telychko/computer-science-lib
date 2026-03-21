@@ -1,5 +1,8 @@
 База даних(ру)  кс-центр
 
+тренування запитів mysql / kaggle / leetcode 
+
+
 https://www.youtube.com/playlist?list=PLlb7e2G7aSpTABCq2ifA8dac39QuxbR1K
 
 big data 
