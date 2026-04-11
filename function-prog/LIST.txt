@@ -1,4 +1,9 @@
 
+https://blog.ploeh.dk/2017/10/04/from-design-patterns-to-category-theory/
+
+
+
+https://docs.haskellstack.org/en/stable/
 
  **функтор** і **рекурсивне замикання** — це не одне й те саме, хоча вони можуть бути пов’язані в певних контекстах.  
 
